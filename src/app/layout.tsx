@@ -1,3 +1,8 @@
+/**
+ * Next.js(App Router)においては、ディレクトリごとにlayout.tsxを配置でき、子階層のページへ継承させることが可能。
+ * 下位ディレクトリで別途layout.tsxを作成しレイアウトを定義すると、それ以降の階層のページは新しいレイアウトに置き換わる仕組みになっている
+ * そうした構造を活用することでグローバルなスタイル管理とセクションごとの個別レイアウトをスムーズに両立できる
+ */
 import type {Metadata} from "next";
 import "./globals.css";
 
@@ -9,6 +14,9 @@ export const metadata: Metadata = {
 export default function RootLayout({
                                        children,
                                    }: Readonly<{ children: React.ReactNode }>) {
+    /**
+     * childrenはレイアウトコンポーネントの中に動的にコンテンツを挿入するためのプレースホルダー
+     */
     return (
         <html lang="ja">
             <body className="flex min-h-screen">
